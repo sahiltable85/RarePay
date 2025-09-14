@@ -1,6 +1,6 @@
 import Foundation
 import TerminalAPIKit
-import AdyenPOS   // If this line errors, switch to: import AdyenPOSTEST
+import AdyenPOS // If this line errors, switch to: import AdyenPOSTEST
 
 @MainActor
 final class TapToPayManager: NSObject, ObservableObject {
@@ -11,24 +11,30 @@ final class TapToPayManager: NSObject, ObservableObject {
         PaymentService(delegate: self)
     }()
 
-    // ← Make sure this is your Mac’s LAN IP (reachable from the iPhone)
+    // Make sure this is your Mac’s LAN IP (reachable from the iPhone)
     private let sessionsURL = URL(string: "http://192.168.1.204:3000/api/adyen/possdk/sessions")!
 
     // MARK: - Warmup / linking
+    
+    /// This function starts the process of linking and warming up the connection.
+    /// It should be called from a button tap in your user interface.
     func bootstrap() async {
-      do {
-        // Always show the Adyen “Link account” UI once
-        try await service.linkAccountForTapToPay()
+        do {
+            // Always show the Adyen “Link account” UI once
+            try await service.linkAccountForTapToPay()
 
-        // Then warm up (this asks Adyen for a setupToken)
-        try await service.warmUp()
-        status = "Ready"
-      } catch {
-        status = "Warm-up error: \(error.localizedDescription)"
-      }
+            // Then warm up (this asks Adyen for a setupToken, which triggers the network call)
+            try await service.warmUp()
+            status = "Ready to take payment"
+        } catch {
+            status = "Warm-up error: \(error.localizedDescription)"
+        }
     }
 
     // MARK: - Payment
+    
+    /// This function initiates a payment transaction.
+    /// It should only be called after bootstrap() has completed successfully.
     func startPayment(amountMinor: Int, currency: String = "USD") async {
         do {
             // throws accessor (sync)
@@ -100,7 +106,7 @@ extension TapToPayManager: PaymentServiceDelegate {
             let message = String(data: data, encoding: .utf8) ?? "<no body>"
             throw NSError(domain: "SessionsError", code: http.statusCode,
                           userInfo: [NSLocalizedDescriptionKey:
-                                     "Sessions \(http.statusCode): \(message)"])
+                                      "Sessions \(http.statusCode): \(message)"])
         }
         return try JSONDecoder().decode(SessionsResponse.self, from: data).sdkData
     }
