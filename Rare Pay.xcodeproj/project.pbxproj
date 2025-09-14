@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		BAC854892E760B4E0076DF65 /* AdyenPOSTEST in Frameworks */ = {isa = PBXBuildFile; productRef = BAC854882E760B4E0076DF65 /* AdyenPOSTEST */; };
+		BAC8548C2E760CE30076DF65 /* TapToPayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC8548B2E760CD10076DF65 /* TapToPayManager.swift */; };
+		BAC8548F2E760DAD0076DF65 /* TerminalAPIKit in Frameworks */ = {isa = PBXBuildFile; productRef = BAC8548E2E760DAD0076DF65 /* TerminalAPIKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		BA507F5D2E720D8B00A865BA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +33,7 @@
 		BA507F4F2E720D8A00A865BA /* Rare Pay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rare Pay.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA507F5C2E720D8B00A865BA /* Rare PayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rare PayTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA507F662E720D8B00A865BA /* Rare PayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rare PayUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAC8548B2E760CD10076DF65 /* TapToPayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapToPayManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -52,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAC8548F2E760DAD0076DF65 /* TerminalAPIKit in Frameworks */,
+				BAC854892E760B4E0076DF65 /* AdyenPOSTEST in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +84,7 @@
 		BA507F462E720D8A00A865BA = {
 			isa = PBXGroup;
 			children = (
+				BAC8548B2E760CD10076DF65 /* TapToPayManager.swift */,
 				BA507F512E720D8A00A865BA /* Rare Pay */,
 				BA507F5F2E720D8B00A865BA /* Rare PayTests */,
 				BA507F692E720D8B00A865BA /* Rare PayUITests */,
@@ -112,6 +122,8 @@
 			);
 			name = "Rare Pay";
 			packageProductDependencies = (
+				BAC854882E760B4E0076DF65 /* AdyenPOSTEST */,
+				BAC8548E2E760DAD0076DF65 /* TerminalAPIKit */,
 			);
 			productName = "Rare Pay";
 			productReference = BA507F4F2E720D8A00A865BA /* Rare Pay.app */;
@@ -195,6 +207,10 @@
 			);
 			mainGroup = BA507F462E720D8A00A865BA;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				BAC854872E760B4E0076DF65 /* XCRemoteSwiftPackageReference "adyen-pos-mobile-ios-test" */,
+				BAC8548D2E760DAD0076DF65 /* XCRemoteSwiftPackageReference "adyen-terminal-api-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = BA507F502E720D8A00A865BA /* Products */;
 			projectDirPath = "";
@@ -236,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAC8548C2E760CE30076DF65 /* TapToPayManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,11 +412,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = "Rare Pay/Rare Pay.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QQMNJN675U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Rare-Pay-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Rare Pay";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "This app needs to connect to our server on your local network to process payments.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -410,7 +432,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "ae.therare.Rare-Pay";
+				PRODUCT_BUNDLE_IDENTIFIER = ae.therare.payments.dev.relink1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -423,11 +445,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = "Rare Pay/Rare Pay.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QQMNJN675U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Rare-Pay-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Rare Pay";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "This app needs to connect to our server on your local network to process payments.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -438,7 +465,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "ae.therare.Rare-Pay";
+				PRODUCT_BUNDLE_IDENTIFIER = ae.therare.payments.dev.relink1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -558,6 +585,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BAC854872E760B4E0076DF65 /* XCRemoteSwiftPackageReference "adyen-pos-mobile-ios-test" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Adyen/adyen-pos-mobile-ios-test";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		BAC8548D2E760DAD0076DF65 /* XCRemoteSwiftPackageReference "adyen-terminal-api-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Adyen/adyen-terminal-api-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BAC854882E760B4E0076DF65 /* AdyenPOSTEST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BAC854872E760B4E0076DF65 /* XCRemoteSwiftPackageReference "adyen-pos-mobile-ios-test" */;
+			productName = AdyenPOSTEST;
+		};
+		BAC8548E2E760DAD0076DF65 /* TerminalAPIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BAC8548D2E760DAD0076DF65 /* XCRemoteSwiftPackageReference "adyen-terminal-api-ios" */;
+			productName = TerminalAPIKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BA507F472E720D8A00A865BA /* Project object */;
 }

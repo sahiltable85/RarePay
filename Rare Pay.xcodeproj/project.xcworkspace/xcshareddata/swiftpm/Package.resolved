@@ -1,0 +1,24 @@
+{
+  "originHash" : "3a5903c4615acff1d97a5e394ffd160fdf471bcd43ac25a8b7762c5ac36f1186",
+  "pins" : [
+    {
+      "identity" : "adyen-pos-mobile-ios-test",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Adyen/adyen-pos-mobile-ios-test",
+      "state" : {
+        "branch" : "main",
+        "revision" : "3a81e13bef1efca5d7770d408aa23222479a0f89"
+      }
+    },
+    {
+      "identity" : "adyen-terminal-api-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Adyen/adyen-terminal-api-ios",
+      "state" : {
+        "revision" : "22ed27dcb96716d380a4181001936bce7e3c6258",
+        "version" : "2.0.0"
+      }
+    }
+  ],
+  "version" : 3
+}
