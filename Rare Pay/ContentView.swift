@@ -8,6 +8,13 @@ struct ContentView: View {
         VStack(spacing: 16) {
             Text("Tap to Pay (TEST)").font(.title3)
             Text(ttp.status).font(.footnote).foregroundStyle(.secondary)
+            
+            Button("Connect and Warm Up") {
+                Task {
+                    await ttp.bootstrap()
+                }
+            }
+            .buttonStyle(.borderedProminent)
 
             HStack(spacing: 12) {
                 TextField("Amount (USD)", text: $amountText)
@@ -22,7 +29,7 @@ struct ContentView: View {
             }
         }
         .padding()
-        .task { await ttp.bootstrap() }
+  
         // This presents the Apple Tap to Pay sheet
         .transactionModal(with: ttp.service)
     }
